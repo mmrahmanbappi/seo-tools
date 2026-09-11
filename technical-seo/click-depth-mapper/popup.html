@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Click Depth Mapper</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div id="app">
+
+    <div id="app-header">
+      <div id="app-header-left">
+        <img id="app-logo" src="icons/icon16.png" alt="" width="16" height="16" />
+        <span id="app-title">Click Depth Mapper</span>
+      </div>
+      <a id="app-github" href="https://github.com/mmrahmanbappi" target="_blank" rel="noopener noreferrer" title="GitHub profile">
+        <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+            0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
+            -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+            -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12
+            0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82
+            .44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48
+            0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+      </a>
+    </div>
+
+    <div id="passive-row">
+      <span class="dot" id="passive-dot"></span>
+      <span id="passive-text">checking this page…</span>
+    </div>
+
+    <div id="state-idle" class="state" hidden>
+      <div id="idle-busy-banner" class="banner" hidden></div>
+      <p class="muted">run a full scan to map click depth across this site (up to 5,000 pages).</p>
+      <button id="btn-start-scan" class="primary">scan this site</button>
+    </div>
+
+    <div id="state-running" class="state" hidden>
+      <div class="row-title">
+        <span class="dot dot-accent"></span>
+        <span id="running-label">scanning…</span>
+      </div>
+      <div class="bar"><div id="running-bar-fill" class="bar-fill"></div></div>
+      <div class="row-between mono small">
+        <span id="running-count">0 / 0 pages</span>
+        <span id="running-eta"></span>
+      </div>
+      <div class="row-between section-gap">
+        <span class="muted small">depth breakdown (live)</span>
+      </div>
+      <div id="running-depth-table" class="depth-table"></div>
+      <div class="btn-row">
+        <button id="btn-pause-scan">pause</button>
+      </div>
+    </div>
+
+    <div id="state-paused" class="state" hidden>
+      <div id="paused-banner" class="banner"></div>
+      <div class="bar"><div id="paused-bar-fill" class="bar-fill muted-fill"></div></div>
+      <div class="mono small" id="paused-count"></div>
+      <div class="btn-row">
+        <button id="btn-resume-scan" class="accent-outline">resume scan</button>
+        <button id="btn-export-partial">export partial</button>
+      </div>
+    </div>
+
+    <div id="state-done" class="state" hidden>
+      <div id="done-warning" class="banner" hidden></div>
+      <div class="row-between">
+        <span class="muted small">depth breakdown</span>
+        <span class="muted small" id="done-total"></span>
+      </div>
+      <div id="depth-table" class="depth-table"></div>
+      <div class="btn-row">
+        <button id="btn-rescan">rescan</button>
+        <button id="btn-export-all" class="primary">export all (.xlsx)</button>
+      </div>
+      <div class="btn-row">
+        <button id="btn-export-pdf" class="accent-outline btn-icon">
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true">
+            <path d="M4 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5.41
+              a1 1 0 0 0-.29-.7L9.29 1.29A1 1 0 0 0 8.59 1H4Zm5 1.5L11.5 5H9.5
+              a.5.5 0 0 1-.5-.5V2.5ZM4.5 8h7v1h-7V8Zm0 2.25h7v1h-7v-1ZM4.5 12.5h4.5v1H4.5v-1Z"/>
+          </svg>
+          export PDF report
+        </button>
+      </div>
+    </div>
+
+    <div id="app-footer">
+      <a id="app-website" href="https://mmseo.app" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-3" />
+          <path d="M9 2h5v5" />
+          <path d="M14 2 7 9" />
+        </svg>
+        mmseo.app
+      </a>
+    </div>
+
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
