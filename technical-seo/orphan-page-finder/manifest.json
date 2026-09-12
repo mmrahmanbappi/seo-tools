@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Orphan Page Finder",
+  "version": "1.0.0",
+  "description": "Find pages your sitemap lists that no internal link actually leads to, plus pages that are only weakly linked. Free, no account needed, up to 5,000 pages per scan.",
+  "permissions": ["storage", "unlimitedStorage", "downloads", "tabs", "scripting"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

@@ -1,0 +1,313 @@
+* { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  width: 360px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #1a1a1a;
+  background: #ffffff;
+}
+
+#app {
+  padding: 14px;
+}
+
+#app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ececea;
+}
+
+#app-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#app-logo {
+  display: block;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+#app-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+#app-github {
+  display: flex;
+  align-items: center;
+  color: #999999;
+  flex-shrink: 0;
+}
+
+#app-github:hover { color: #1a1a1a; }
+
+#app-footer {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid #ececea;
+  text-align: center;
+}
+
+#app-website {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: #666666;
+  text-decoration: none;
+}
+
+#app-website svg { flex-shrink: 0; }
+#app-website:hover { color: #0f6e56; }
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Courier New", monospace;
+}
+
+.small { font-size: 12px; }
+.muted { color: #666666; }
+
+#passive-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: #f6f6f5;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #b0b0b0;
+  flex-shrink: 0;
+}
+
+.dot-accent { background: #1d9e75; }
+.dot-warn { background: #c48228; }
+.dot-danger { background: #be3c32; }
+
+.row-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.row-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-gap { margin-top: 10px; }
+
+.bar {
+  position: relative;
+  height: 8px;
+  background: #eeeeee;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  background: #1d9e75;
+  border-radius: 4px;
+}
+
+.btn-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+button {
+  font-family: inherit;
+  font-size: 13px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid #d8d8d8;
+  background: #ffffff;
+  color: #1a1a1a;
+  cursor: pointer;
+  flex: 1;
+}
+
+button:hover { background: #f6f6f5; }
+button:active { transform: scale(0.98); }
+
+button.primary {
+  background: #1d9e75;
+  border-color: #1d9e75;
+  color: #ffffff;
+  width: 100%;
+}
+button.primary:hover { background: #17805f; }
+
+/* light-green fill for export all — same brand green, lighter weight than
+   button.primary so it doesn't compete visually with the main scan action */
+button.light-green {
+  background: #e1f5ee;
+  border-color: #1d9e75;
+  color: #0f6e56;
+}
+button.light-green:hover { background: #cdefe2; }
+
+button.accent-outline {
+  border-color: #1d9e75;
+  color: #0f6e56;
+}
+
+button.danger-outline {
+  border-color: #be3c32;
+  color: #a2342b;
+}
+
+button.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.banner-warn { background: #fdf1e0; color: #854f0b; }
+.banner-danger { background: #fbeceb; color: #a2342b; margin-top: 10px; margin-bottom: 0; }
+
+#btn-stop-busy {
+  width: 100%;
+  margin: -4px 0 12px;
+}
+
+.waste-table {
+  border: 1px solid #e5e5e3;
+  border-radius: 8px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 220px;
+  margin-top: 8px;
+}
+
+.waste-row {
+  display: grid;
+  grid-template-columns: 12px 1fr 44px 24px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  border-top: 1px solid #efefee;
+}
+
+.waste-row:first-child { border-top: none; }
+
+.waste-row .count { text-align: right; font-weight: 500; }
+
+/* live view during a running scan — no per-row download yet, counts still moving */
+.waste-row-live {
+  display: grid;
+  grid-template-columns: 12px 1fr 44px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  border-top: 1px solid #efefee;
+}
+
+.waste-row-live:first-child { border-top: none; }
+.waste-row-live .count { text-align: right; font-weight: 500; }
+
+/* per-row download — same pattern as Click Depth Mapper's per-depth export */
+.waste-row .export-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #999999;
+  background: none;
+  border: none;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.waste-row .export-icon:hover { color: #1a1a1a; background: #f0f0ee; }
+
+/* budget input row, idle state */
+#budget-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+#budget-input {
+  width: 70px;
+  font-family: inherit;
+  font-size: 13px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid #d8d8d8;
+  color: #1a1a1a;
+}
+
+#budget-note {
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+/* threshold input row, idle state */
+#threshold-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+#threshold-input {
+  width: 46px;
+  font-family: inherit;
+  font-size: 13px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid #d8d8d8;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+#scope-note {
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+#running-sitemap-info {
+  margin-top: 6px;
+  margin-bottom: 10px;
+  color: #666666;
+}
