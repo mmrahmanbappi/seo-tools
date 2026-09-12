@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Full Site Security Auditor",
+  "version": "1.0.0",
+  "description": "Runs 47 security, DNS, header, and CMS/framework checks against a site: exposed files, admin panels, missing headers, email spoofing risk, hidden spam, and more. Free, no account needed.",
+  "permissions": ["storage", "unlimitedStorage", "downloads", "tabs"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
